@@ -85,3 +85,9 @@ android {
         targetSdkVersion(30)
     }
 }
+
+sqldelight {
+    database("KmmDatabase") {
+        packageName = "com.jflavio.kmm.shared.cache"
+    }
+}
