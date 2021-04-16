@@ -1,9 +1,12 @@
 package com.jflavio.kmmtest.android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import com.jflavio.kmmtest.Greeting
-import android.widget.TextView
 
 fun greet(): String {
     return Greeting().greeting()
@@ -12,9 +15,19 @@ fun greet(): String {
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContent {
+            MainActivity()
+        }
+    }
 
-        val tv: TextView = findViewById(R.id.text_view)
-        tv.text = greet()
+    @Composable
+    fun MainActivity() {
+        Text(text = "Hello world!")
+    }
+
+    @Composable
+    @Preview
+    fun MainPreview() {
+        MainActivity()
     }
 }

@@ -3,6 +3,9 @@ buildscript {
         gradlePluginPortal()
         google()
         mavenCentral()
+        // jcenter allow us to download org.jetbrains.kotlinx:kotlinx-collections-immutable
+        // check https://github.com/Kotlin/kotlinx.collections.immutable/issues/61
+        jcenter()
     }
 
     val kotlinVersion = "1.4.0"
@@ -10,7 +13,7 @@ buildscript {
 
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.32")
-        classpath("com.android.tools.build:gradle:4.1.2")
+        classpath("com.android.tools.build:gradle:7.0.0-alpha14")
         classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion")
         classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelightVersion")
     }
@@ -20,6 +23,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        jcenter()
     }
 }
 
