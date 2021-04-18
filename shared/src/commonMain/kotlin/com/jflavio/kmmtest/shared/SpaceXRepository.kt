@@ -1,9 +1,9 @@
 package com.jflavio.kmmtest.shared
 
+import com.jflavio.kmmtest.RocketLaunch
 import com.jflavio.kmmtest.shared.cache.Database
 import com.jflavio.kmmtest.shared.cache.DatabaseDriverFactory
 import com.jflavio.kmmtest.shared.network.SpaceXApi
-import com.jflavio.kmmtest.RocketLaunch
 
 /**
  * SpaceXSDK
@@ -11,7 +11,13 @@ import com.jflavio.kmmtest.RocketLaunch
  * @author Jose Flavio - jflavio90@gmail.com
  * @since  15/04/2021
  */
-class SpaceXRepository(private val databaseDriverFactory: DatabaseDriverFactory) {
+interface SpaceXRepository {
+    @Throws(Exception::class)
+    suspend fun getLaunches(forceReload: Boolean): List<RocketLaunch>
+}
+
+class SpaceXRepositoryImpl(private val databaseDriverFactory: DatabaseDriverFactory) : SpaceXRepository {
+
     private val database = Database(databaseDriverFactory)
     private val api = SpaceXApi()
 
@@ -26,7 +32,7 @@ class SpaceXRepository(private val databaseDriverFactory: DatabaseDriverFactory)
      * a list of potential exception classes.
      */
     @Throws(Exception::class)
-    suspend fun getLaunches(forceReload: Boolean): List<RocketLaunch> {
+    override suspend fun getLaunches(forceReload: Boolean): List<RocketLaunch> {
         val cachedLaunches = database.getAllLaunches()
         return if (cachedLaunches.isNotEmpty() && !forceReload) {
             cachedLaunches

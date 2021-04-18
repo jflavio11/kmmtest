@@ -25,23 +25,23 @@ android {
 
 kotlin {
 
-    android()
-
-    val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
+    val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
         if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
             ::iosArm64
         else
             ::iosX64
 
-    iosTarget("ios") {}
+    iOSTarget("ios") { }
 
-    cocoapods {
-        summary = "Some description for the Shared Module"
-        homepage = "Link to the Shared Module homepage"
-        ios.deploymentTarget = "14.1"
-        frameworkName = "shared"
-        podfile = project.file("../iosApp/Podfile")
-    }
+    android()
+
+//    cocoapods {
+//        summary = "Some description for the Shared Module"
+//        homepage = "Homepage"
+//        ios.deploymentTarget = "14.1"
+//        frameworkName = "sharedCode"
+//        podfile = project.file("../iosApp/Podfile")
+//    }
 
     val coroutinesVersion = "1.3.9-native-mt"
     val serializationVersion = "1.0.0-RC"
@@ -105,3 +105,15 @@ sqldelight {
         packageName = "com.jflavio.kmmtest.shared.cache"
     }
 }
+
+val packForXcode by tasks.creating(Sync::class) {
+    group = "build"
+    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
+    val framework = kotlin.targets.getByName<KotlinNativeTarget>("ios").binaries.getFramework(mode)
+    inputs.property("mode", mode)
+    dependsOn(framework.linkTask)
+    val targetDir = File(buildDir, "xcode-frameworks")
+    from({ framework.outputDirectory })
+    into(targetDir)
+}
+tasks.getByName("build").dependsOn(packForXcode)

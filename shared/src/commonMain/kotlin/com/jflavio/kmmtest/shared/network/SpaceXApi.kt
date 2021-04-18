@@ -12,7 +12,7 @@ import io.ktor.client.request.*
  * @author Jose Flavio - jflavio90@gmail.com
  * @since  15/04/2021
  */
-class SpaceXApi {
+internal class SpaceXApi {
 
     private val httpClient = HttpClient {
         install(JsonFeature) {
