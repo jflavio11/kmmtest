@@ -117,6 +117,12 @@ sqldelight {
     }
 }
 
+// you must execute this gradle task on terminal ./gradlew :shared:packForXcode
+// to generate a new version of the shared framework
+// also, i added the build-phase script"
+//     cd "$SRCROOT/.."
+//     ./gradlew :shared:packForXCode -PXCODE_CONFIGURATION=${CONFIGURATION}
+// to the Xcode project in order to avoid executing this command everytime we make a change
 val packForXcode by tasks.creating(Sync::class) {
     group = "build"
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
