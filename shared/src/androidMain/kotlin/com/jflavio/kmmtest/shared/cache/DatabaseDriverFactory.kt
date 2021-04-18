@@ -1,4 +1,4 @@
-package com.jflavio.kmm.shared.cache
+package com.jflavio.kmmtest.shared.cache
 
 import android.content.Context
 import com.squareup.sqldelight.android.AndroidSqliteDriver

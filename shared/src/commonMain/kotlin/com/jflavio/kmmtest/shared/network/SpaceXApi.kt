@@ -1,4 +1,4 @@
-package com.jflavio.kmm.shared.network
+package com.jflavio.kmmtest.shared.network
 
 import com.jflavio.kmmtest.RocketLaunch
 import io.ktor.client.*

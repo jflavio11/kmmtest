@@ -102,6 +102,6 @@ android {
 
 sqldelight {
     database("KmmDatabase") {
-        packageName = "com.jflavio.kmm.shared.cache"
+        packageName = "com.jflavio.kmmtest.shared.cache"
     }
 }

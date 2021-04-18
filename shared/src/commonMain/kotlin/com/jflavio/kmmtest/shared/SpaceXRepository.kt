@@ -1,8 +1,8 @@
-package com.jflavio.kmm.shared
+package com.jflavio.kmmtest.shared
 
-import com.jflavio.kmm.shared.cache.Database
-import com.jflavio.kmm.shared.cache.DatabaseDriverFactory
-import com.jflavio.kmm.shared.network.SpaceXApi
+import com.jflavio.kmmtest.shared.cache.Database
+import com.jflavio.kmmtest.shared.cache.DatabaseDriverFactory
+import com.jflavio.kmmtest.shared.network.SpaceXApi
 import com.jflavio.kmmtest.RocketLaunch
 
 /**

@@ -1,4 +1,4 @@
-package com.jflavio.kmm.shared.cache
+package com.jflavio.kmmtest.shared.cache
 
 import com.jflavio.kmmtest.Links
 import com.jflavio.kmmtest.Rocket
