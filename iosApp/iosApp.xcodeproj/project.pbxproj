@@ -13,6 +13,7 @@
 		C928FB04262CB0B2007F6E33 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C928FB03262CB0B2007F6E33 /* Preview Assets.xcassets */; };
 		C9B53DB5262CB75900F9BC4C /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B53DAF262CB5BD00F9BC4C /* shared.framework */; };
 		C9B53DB6262CB75900F9BC4C /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9B53DAF262CB5BD00F9BC4C /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9B53DBD262CBB9000F9BC4C /* RocketLaunchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B53DBC262CBB9000F9BC4C /* RocketLaunchRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,7 @@
 		C928FB03262CB0B2007F6E33 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C928FB05262CB0B2007F6E33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9B53DAF262CB5BD00F9BC4C /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = "../shared/build/xcode-frameworks/shared.framework"; sourceTree = "<group>"; };
+		C9B53DBC262CBB9000F9BC4C /* RocketLaunchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				C928FB00262CB0B2007F6E33 /* Assets.xcassets */,
 				C928FB05262CB0B2007F6E33 /* Info.plist */,
 				C928FB02262CB0B2007F6E33 /* Preview Content */,
+				C9B53DBC262CBB9000F9BC4C /* RocketLaunchRow.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				C928FAFF262CB0B2007F6E33 /* ContentView.swift in Sources */,
 				C928FAFD262CB0B2007F6E33 /* iosAppApp.swift in Sources */,
+				C9B53DBD262CBB9000F9BC4C /* RocketLaunchRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
