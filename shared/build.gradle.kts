@@ -2,14 +2,19 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
-    kotlin("native.cocoapods")
-    id("com.android.library")
     kotlin("plugin.serialization")
+    id("com.android.library")
     id("com.squareup.sqldelight")
 }
 
 version = "1.0"
 
+repositories {
+    gradlePluginPortal()
+    google()
+    jcenter()
+    mavenCentral()
+}
 
 // workaround for https://youtrack.jetbrains.com/issue/KT-43944
 android {
@@ -31,17 +36,23 @@ kotlin {
         else
             ::iosX64
 
-    iOSTarget("ios") { }
+    iOSTarget("ios") {
+        binaries {
+            framework {
+                baseName = "shared"
+            }
+        }
+    }
 
     android()
 
-//    cocoapods {
-//        summary = "Some description for the Shared Module"
-//        homepage = "Homepage"
-//        ios.deploymentTarget = "14.1"
-//        frameworkName = "sharedCode"
-//        podfile = project.file("../iosApp/Podfile")
-//    }
+/*    cocoapods {
+        summary = "Some description for the Shared Module"
+        homepage = "Homepage"
+        ios.deploymentTarget = "14.4"
+        frameworkName = "shared"
+        podfile = project.file("../iosApp/Podfile")
+    }*/
 
     val coroutinesVersion = "1.3.9-native-mt"
     val serializationVersion = "1.0.0-RC"
